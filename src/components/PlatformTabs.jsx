@@ -7,9 +7,9 @@ const PlatformTabs = () => {
 
   const tabs = [
     { id: 'caller', label: 'Caller App', icon: Smartphone, color: 'text-emergency-red' },
-    { id: 'emt', label: 'EMT App', icon: Activity, color: 'text-success-green' },
     { id: 'pilot', label: 'Pilot App', icon: Navigation, color: 'text-tech-blue' },
-    { id: 'hospital', label: 'Hospital', icon: Building2, color: 'text-emergency-red' },
+    { id: 'emt', label: 'EMT App', icon: Activity, color: 'text-success-green' },
+    { id: 'hospital', label: 'Hospital-ERCP', icon: Building2, color: 'text-emergency-red' },
     { id: 'fleet', label: 'Fleet Ops', icon: Truck, color: 'text-tech-blue' },
   ];
 
@@ -34,7 +34,7 @@ const PlatformTabs = () => {
         'Bluetooth vitals: SpO2, HR, BP, ECG, Temp',
         'RTVS — Real-Time Vitals Streaming to hospital',
         'TeleLink: Encrypted video with hospital doctor',
-        'Works fully offline — syncs on reconnect',
+        'Also  Works fully offline — syncs on reconnect',
       ],
       mockup: 'emt'
     },
@@ -56,7 +56,7 @@ const PlatformTabs = () => {
       features: [
         'Live incoming patient pre-alert board',
         'RTVS vitals panel per incoming patient',
-        'TeleLink: Accept emergency video calls',
+        'TeleLink: real-Time face to face management with are  smart Telelink teleconsultation',
         'Bed availability status management',
         'Analytics and outcome tracking',
       ],
@@ -68,7 +68,8 @@ const PlatformTabs = () => {
       features: [
         'Real-time fleet map with GPS telemetry',
         'Vehicle documents & compliance tracker',
-        'Crew scheduling and attendance',
+        'Crew scheduling and management',
+        'Management of satellite stations and depots',
         'Inventory management with expiry alerts',
         'Performance analytics and KPI reports',
       ],

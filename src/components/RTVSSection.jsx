@@ -7,8 +7,9 @@ const RTVSSection = () => {
     spo2: 97,
     hr: 82,
     bp: '120/80',
-    temp: 37.2,
+    temp: 36.0,
     rbs: 110,
+    hct: 42,
   });
 
   const canvasRef = useRef({});
@@ -18,8 +19,9 @@ const RTVSSection = () => {
       spo2: { values: Array(50).fill(97), color: '#457B9D' },
       hr: { values: Array(50).fill(82), color: '#E63946' },
       bp: { values: Array(50).fill(120), color: '#5A9DBF' },
-      temp: { values: Array(50).fill(37.2), color: '#F7B32B' },
+      temp: { values: Array(50).fill(36.0), color: '#F7B32B' },
       rbs: { values: Array(50).fill(110), color: '#2DC653' },
+      hct: { values: Array(50).fill(42), color: '#FF6B6B' },
       ecg: { values: Array(200).fill(0), color: '#2DC653' }
     };
 
@@ -35,6 +37,12 @@ const RTVSSection = () => {
           const last = data[key].values[data[key].values.length - 1];
           const variance = key === 'temp' ? 0.05 : 2;
           let next = last + (Math.random() - 0.5) * variance;
+          
+          // Clamp values to realistic ranges
+          if (key === 'spo2') next = Math.min(100, Math.max(85, next));
+          if (key === 'hct') next = Math.min(60, Math.max(30, next));
+          if (key === 'temp') next = Math.min(39, Math.max(35, next));
+          
           data[key].values.push(next);
         }
       });
@@ -102,6 +110,7 @@ const RTVSSection = () => {
     { id: 'bp', label: 'Blood Pressure', unit: 'mmHg', icon: Zap, color: 'text-tech-blue-light' },
     { id: 'temp', label: 'Temperature', unit: '°C', icon: Thermometer, color: 'text-warning-yellow' },
     { id: 'rbs', label: 'Blood Sugar', unit: 'mg/dL', icon: LineChart, color: 'text-success-green' },
+    { id: 'hct', label: 'Hematocrit', unit: '%', icon: Activity, color: 'text-emergency-red-light' },
   ];
 
   return (
@@ -119,7 +128,7 @@ const RTVSSection = () => {
           <div className="bg-[var(--bg-tertiary)] px-8 py-6 border-b border-[var(--border)] flex flex-wrap justify-between items-center gap-4">
              <div>
                <div className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-1">Patient Assessment</div>
-               <div className="text-xl font-bold font-heading">Rajesh Kumar, 54M • <span className="text-emergency-red">En Route (6 min)</span></div>
+               <div className="text-xl font-bold font-heading">Rajesh Kumar, 54M • <span className="text-tech-blue-light">B+ Positive</span> • <span className="text-emergency-red">En Route (6 min)</span></div>
              </div>
              <div className="flex items-center gap-3 bg-emergency-red/10 px-4 py-2 rounded-full border border-emergency-red/20 shadow-glow-red animate-pulse">
                 <div className="w-2.5 h-2.5 bg-emergency-red rounded-full" />

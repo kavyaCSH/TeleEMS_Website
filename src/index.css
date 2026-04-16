@@ -142,3 +142,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(69, 123, 157, 0.4);
 }
+
+.bg-gradient-red {
+  background: linear-gradient(135deg, #E63946, #C62828);
+}

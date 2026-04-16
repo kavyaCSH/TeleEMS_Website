@@ -16,7 +16,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Intelligent Emergency Medical Services platform. Connect patients, paramedics, and hospitals in seconds.
+              Intell Emergency Medical Services platform. Connect patients, paramedics, and hospitals in seconds.
             </p>
             <div className="flex gap-4">
                {[Globe, Users, Code, Mail].map((Icon, i) => (

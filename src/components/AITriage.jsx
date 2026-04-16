@@ -160,4 +160,4 @@ const AITriage = () => {
   );
 };
 
-export default AITriage;
+export default AITriage;  

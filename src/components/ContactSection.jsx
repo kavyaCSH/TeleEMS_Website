@@ -58,7 +58,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-lg mb-1 text-[var(--text-primary)]">Headquarters</h4>
-                  <p className="text-[var(--text-secondary)]">Mumbai, Maharashtra, India</p>
+                  <p className="text-[var(--text-secondary)]">Chennai, Tamil Nadu, India</p>
                 </div>
               </div>
             </div>

@@ -146,9 +146,6 @@ const ChatWidget = () => {
                     </div>
                   </div>
                </div>
-               <button onClick={clearChat} className="p-2 hover:bg-white/10 rounded-lg transition-colors text-white/70 hover:text-white">
-                  <Trash2 size={18} />
-               </button>
             </div>
 
             {/* Messages */}
