@@ -186,9 +186,10 @@ const Hero = () => {
           transition={{ delay: 0.2 }}
           className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow"
         >
-          CureSelect Healthcare's IntellEMS our Digital platform parallely  connects patients, paramedics,
+          {/* CureSelect Healthcare's IntellEMS our Digital platform parallely  connects patients, paramedics,
           and hospitals in  real-time powered by  seamless AI  flow of dispatch, real-time vitals streaming,
-          and encrypted teleconsultation and management with triaged hand over.
+          and encrypted teleconsultation and management with triaged hand over. */}
+      CureSelect Healthcare’s IntellEMS is a real-time digital platform seamlessly connecting patients, paramedics, and hospitals through AI-powered dispatch, live vitals streaming, and secure teleconsultation for efficient triaged care.
         </motion.p>
 
         <motion.div
