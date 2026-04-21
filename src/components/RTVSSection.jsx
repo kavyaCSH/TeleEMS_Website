@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Activity, Zap, HeartPulse, Thermometer, Droplets, LineChart } from 'lucide-react';
+import { Wind, Heart, Gauge, Thermometer, TestTube, Beaker, Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const RTVSSection = () => {
@@ -105,12 +105,12 @@ const RTVSSection = () => {
   };
 
   const cards = [
-    { id: 'spo2', label: 'SpO₂', unit: '%', icon: Droplets, color: 'text-tech-blue' },
-    { id: 'hr', label: 'Heart Rate', unit: 'bpm', icon: HeartPulse, color: 'text-emergency-red' },
-    { id: 'bp', label: 'Blood Pressure', unit: 'mmHg', icon: Zap, color: 'text-tech-blue-light' },
+    { id: 'spo2', label: 'SpO₂', unit: '%', icon: Wind, color: 'text-tech-blue' },
+    { id: 'hr', label: 'Heart Rate', unit: 'bpm', icon: Heart, color: 'text-emergency-red' },
+    { id: 'bp', label: 'Blood Pressure', unit: 'mmHg', icon: Gauge, color: 'text-tech-blue-light' },
     { id: 'temp', label: 'Temperature', unit: '°C', icon: Thermometer, color: 'text-warning-yellow' },
-    { id: 'rbs', label: 'Blood Sugar', unit: 'mg/dL', icon: LineChart, color: 'text-success-green' },
-    { id: 'hct', label: 'Hematocrit', unit: '%', icon: Activity, color: 'text-emergency-red-light' },
+    { id: 'rbs', label: 'Blood Sugar', unit: 'mg/dL', icon: Beaker, color: 'text-success-green' },
+    { id: 'hct', label: 'Hematocrit', unit: '%', icon: TestTube, color: 'text-emergency-red-light' },
   ];
 
   return (
@@ -177,25 +177,25 @@ const RTVSSection = () => {
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
-            <div className="text-3xl mb-4">🔵</div>
+            <div className="text-3xl mb-4">🛜</div>
             <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">Bluetooth LE Device Pairing</h3>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Pairs Pulse Oximeter, BP Cuff, ECG Leads, Glucometer, Thermometer, and Capnograph via guided wizard. Manual entry fallback if device pairing fails.</p>
           </div>
           
           <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
-            <div className="text-3xl mb-4">🚨</div>
+            <div className="text-3xl mb-4">⚠️</div>
             <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">Threshold Alerting & SOS Auto-Trigger</h3>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Configurable high/low limits per vital. When breached, RTVS publishes a VITALS_CRITICAL event — TeleLink session auto-initiated with SOS flag and ERCP critical queue priority.</p>
           </div>
           
           <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
-            <div className="text-3xl mb-4">📊</div>
+            <div className="text-3xl mb-4">📈</div>
             <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">1-Second Resolution Archive</h3>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">All vitals stored at 1-second granularity in TimescaleDB. Full trend chart embedded in ePCR at handoff. Raw data retained 2 years per MCI guidelines.</p>
           </div>
           
           <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
-            <div className="text-3xl mb-4">📶</div>
+            <div className="text-3xl mb-4">📉</div>
             <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">Graceful Degradation on 2G</h3>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Under low bandwidth, RTVS gracefully downgrades to 30-second polling. TeleLink falls back to audio-only below 500kbps. SMS text consultation as last resort.</p>
           </div>
