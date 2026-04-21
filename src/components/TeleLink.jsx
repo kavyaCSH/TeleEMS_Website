@@ -8,10 +8,17 @@ const TeleLink = () => {
       <div className="section-container">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="section-tag">Teleconsultation</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mt-4 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold font-heading mt-4 mb-6 leading-tight text-[var(--text-primary)]">
             TeleLink — <span className="gradient-text">Doctor at the Scene, Virtually</span>
           </h2>
-          <p className="text-gray-400 text-lg">Encrypted HD video consultation between EMTs and hospital doctors — with shared vitals panel and specialist escalation.</p>
+          <div className="space-y-4">
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+              TeleLink is CureSelect's HIPAA-compliant encrypted video teleconsultation layer, connecting the EMT on scene directly to the Emergency Response Consult Physician (ERCP) at the hospital — with live vitals, ECG, and patient data on the same screen.
+            </p>
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-bold">
+              When vitals breach a critical threshold, TeleLink auto-triggers without the EMT needing to initiate — because in emergencies, a second of hesitation matters.
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row items-stretch gap-12 bg-gray-900/40 p-1 bg-gradient-to-br from-white/5 to-transparent rounded-[2rem] border border-white/5 shadow-2xl overflow-hidden">

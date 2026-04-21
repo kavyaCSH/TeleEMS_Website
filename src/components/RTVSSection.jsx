@@ -118,10 +118,12 @@ const RTVSSection = () => {
       <div className="section-container">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="section-tag">Real-Time Vitals</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mt-4 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold font-heading mt-4 mb-6 leading-tight text-[var(--text-primary)]">
             RTVS — <span className="gradient-text">See Metrics Before Arrival</span>
           </h2>
-          <p className="text-[var(--text-secondary)] text-lg">Stream live patient vitals from the ambulance to the hospital emergency department — enabling critical pre-arrival preparation.</p>
+          <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+            RTVS streams live patient vitals from Bluetooth-paired Intelli devices in the ambulance — through MQTT over TLS — to the hospital ERCP console and ED Monitor in under 500ms.
+          </p>
         </div>
 
         <div className="glass-card overflow-hidden">
@@ -173,10 +175,30 @@ const RTVSSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-12 text-gray-500">
-           <div className="flex items-center gap-3"><Zap size={20} className="text-warning-yellow" /> &lt; 500ms Global Latency</div>
-           <div className="flex items-center gap-3"><Activity size={20} className="text-success-green" /> MQTT Based Sync</div>
-           <div className="flex items-center gap-3"><HeartPulse size={20} className="text-emergency-red" /> ABDM Compliant Data</div>
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
+            <div className="text-3xl mb-4">🔵</div>
+            <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">Bluetooth LE Device Pairing</h3>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Pairs Pulse Oximeter, BP Cuff, ECG Leads, Glucometer, Thermometer, and Capnograph via guided wizard. Manual entry fallback if device pairing fails.</p>
+          </div>
+          
+          <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
+            <div className="text-3xl mb-4">🚨</div>
+            <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">Threshold Alerting & SOS Auto-Trigger</h3>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Configurable high/low limits per vital. When breached, RTVS publishes a VITALS_CRITICAL event — TeleLink session auto-initiated with SOS flag and ERCP critical queue priority.</p>
+          </div>
+          
+          <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
+            <div className="text-3xl mb-4">📊</div>
+            <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">1-Second Resolution Archive</h3>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">All vitals stored at 1-second granularity in TimescaleDB. Full trend chart embedded in ePCR at handoff. Raw data retained 2 years per MCI guidelines.</p>
+          </div>
+          
+          <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-tech-blue)] transition-all">
+            <div className="text-3xl mb-4">📶</div>
+            <h3 className="text-[var(--text-primary)] font-bold mb-2 leading-tight">Graceful Degradation on 2G</h3>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">Under low bandwidth, RTVS gracefully downgrades to 30-second polling. TeleLink falls back to audio-only below 500kbps. SMS text consultation as last resort.</p>
+          </div>
         </div>
       </div>
     </section>
