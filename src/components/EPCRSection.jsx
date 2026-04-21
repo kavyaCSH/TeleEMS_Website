@@ -25,7 +25,7 @@ const EPCRSection = () => {
                     <div className="text-xs font-mono text-gray-500 uppercase font-bold tracking-widest">ePCR #TLE-2026-0482</div>
                  </div>
                  
-                 <div className="grid grid-cols-2 gap-8 mb-8">
+                 <div className="grid grid-cols-3 gap-4 mb-8">
                     <div>
                        <div className="text-[10px] text-gray-400 font-bold uppercase mb-1">Patient</div>
                        <div className="font-bold text-sm">Rajesh Kumar, 54M</div>
@@ -33,6 +33,10 @@ const EPCRSection = () => {
                     <div>
                        <div className="text-[10px] text-gray-400 font-bold uppercase mb-1">ABHA ID</div>
                        <div className="font-bold text-sm">91-XXXX-XXXX-3847</div>
+                    </div>
+                    <div>
+                       <div className="text-[10px] text-gray-400 font-bold uppercase mb-1">Blood Group</div>
+                       <div className="font-bold text-sm text-emergency-red">O+</div>
                     </div>
                  </div>
 

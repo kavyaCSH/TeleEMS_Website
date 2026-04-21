@@ -57,8 +57,28 @@ const ContactSection = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1 text-[var(--text-primary)]">Headquarters</h4>
-                  <p className="text-[var(--text-secondary)]">Chennai, Tamil Nadu, India</p>
+                  <h4 className="font-bold text-lg mb-1 text-[var(--text-primary)]">CureSelect Healthcare LLP</h4>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
+                    No:69, Kamdar Nagar, 2nd Street,<br />
+                    Nungambakkam, Chennai-600034<br />
+                    Tamil Nadu, India
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-full h-64 mt-4 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--bg-tertiary)] p-2 relative group shadow-sm">
+                <div className="w-full h-full rounded-xl overflow-hidden relative isolate">
+                  <iframe 
+                    src="https://maps.google.com/maps?q=Kamdar%20Nagar,%202nd%20Street,%20Nungambakkam,%20Chennai%20600034&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="CureSelect Healthcare Location"
+                    className="absolute inset-0 z-10 filter grayscale-[0.3] contrast-[1.1] group-hover:grayscale-0 transition-all duration-700"
+                  ></iframe>
                 </div>
               </div>
             </div>

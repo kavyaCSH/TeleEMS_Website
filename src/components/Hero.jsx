@@ -4,6 +4,56 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import videoBg from '../assets/videos/TeleEMS video2.mp4';
 
+const AnimatedStat = ({ endValue, label, suffix = "", prefix = "" }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView) return;
+    
+    let startTimestamp = null;
+    const duration = 2000;
+    
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(easeOut * endValue));
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    
+    window.requestAnimationFrame(step);
+  }, [inView, endValue]);
+
+  return (
+    <div
+      ref={ref}
+      className="glass-card p-4 md:p-6 text-center hover:border-tech-blue/50 transition-colors group bg-black/30 backdrop-blur-md border-white/10"
+    >
+      <div className="text-2xl md:text-3xl font-bold font-heading text-white group-hover:text-emergency-red transition-colors">
+        {prefix}{count.toLocaleString()}{suffix}
+      </div>
+      <div className="text-xs md:text-sm text-white/50 uppercase tracking-widest mt-2">{label}</div>
+    </div>
+  );
+};
+
 const Hero = () => {
   const canvasRef = useRef(null);
   const [showVideo, setShowVideo] = useState(false);
@@ -124,9 +174,10 @@ const Hero = () => {
         >
           AI-Powered Emergency Dispatch.<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emergency-red via-tech-blue to-emergency-red-light">
-            Real-Time Care.
+            Real-Time Connected Care.
           </span><br />
-          Life-Saving Speed.
+          Life-Saving Speed.<br />
+          <span className="inline-block text-sm md:text-base text-emergency-red mt-3 px-4 py-1 border border-emergency-red/50 rounded-full font-medium bg-emergency-red/10 backdrop-blur-sm tracking-wide">Platinum speed</span>
         </motion.h1>
 
         <motion.p
@@ -165,22 +216,16 @@ const Hero = () => {
           transition={{ delay: 0.4 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
         >
-          {[
-            { label: 'Deployed', val: '12,847+' },
-            { label: 'Patients', val: '284,562+' },
-            { label: 'Hospitals', val: '1,250+' },
-            { label: 'Avg Response', val: '< 8 min' },
-          ].map(stat => (
-            <div
-              key={stat.label}
-              className="glass-card p-4 md:p-6 text-center hover:border-tech-blue/50 transition-colors group bg-black/30 backdrop-blur-md border-white/10"
-            >
-              <div className="text-2xl md:text-3xl font-bold font-heading text-white group-hover:text-emergency-red transition-colors">
-                {stat.val}
-              </div>
-              <div className="text-xs md:text-sm text-white/50 uppercase tracking-widest mt-2">{stat.label}</div>
-            </div>
-          ))}
+          {/* Animated Stats */}
+          <AnimatedStat label="Deployed" endValue={12847} suffix="+" />
+          <AnimatedStat label="Patients" endValue={284562} suffix="+" />
+          <AnimatedStat label="Hospitals" endValue={1250} suffix="+" />
+          <div className="glass-card p-4 md:p-6 text-center hover:border-tech-blue/50 transition-colors group bg-black/30 backdrop-blur-md border-white/10">
+             <div className="text-2xl md:text-3xl font-bold font-heading text-white group-hover:text-emergency-red transition-colors">
+                &lt; 8 min
+             </div>
+             <div className="text-xs md:text-sm text-white/50 uppercase tracking-widest mt-2">Avg Response</div>
+          </div>
         </motion.div>
 
         <motion.div
